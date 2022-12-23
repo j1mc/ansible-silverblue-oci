@@ -1,9 +1,9 @@
-# base
+# Marla OS 
 
 [![build-marla-os](https://github.com/j1mc/marla-os/actions/workflows/build.yml/badge.svg)](https://github.com/j1mc/marla-os/actions/workflows/build.yml)
 
-A base image with a (mostly) stock Fedora Silverblue. Help us make a sweet base image: Pull
-requests and improvements appreciated and encouraged!   
+A base image with a (mostly) stock Fedora Silverblue. Taken from
+[https://github.com/ublue-os/base](ublue/base), but renamed after one of my cats.
 
 ## Usage
 
