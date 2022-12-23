@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Marla OS Desktop FirstBoot Setup
+Comment=Sets up Marla OS Desktop Correctly On FirstBoot
+Exec=/usr/bin/marla-os-firstboot
+Icon=org.gnome.Terminal
+Type=Application
+Categories=Utility;System;
+Name[en_US]=startup

@@ -1,4 +1,4 @@
-name: build-ublue
+name: build-marla-os
 on:
   pull_request:
     branches:

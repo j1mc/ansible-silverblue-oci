@@ -5,7 +5,7 @@ FROM ghcr.io/cgwalters/fedora-silverblue:${FEDORA_MAJOR_VERSION}
 
 COPY etc /etc
 
-COPY ublue-firstboot /usr/bin
+COPY marla-os-firstboot /usr/bin
 
 # Fix rpm-ostree, see: https://bodhi.fedoraproject.org/updates/FEDORA-2022-4ad713eb82
 RUN rpm-ostree override replace https://kojipkgs.fedoraproject.org//packages/rpm-ostree/2022.19/2.fc37/x86_64/rpm-ostree-{libs-,}2022.19-2.fc37.x86_64.rpm
