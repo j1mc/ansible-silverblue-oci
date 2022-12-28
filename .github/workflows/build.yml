@@ -1,3 +1,5 @@
+---
+
 name: build-marla-os
 on:
   pull_request:
@@ -9,8 +11,8 @@ on:
     branches:
       - main
 env:
-    IMAGE_NAME: base
-    IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+  IMAGE_NAME: base
+  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
   push-ghcr:
@@ -24,7 +26,7 @@ jobs:
           - major_version: 37
             is_latest: true
             is_stable: true
-    steps: 
+    steps:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v3
@@ -44,7 +46,7 @@ jobs:
             alias_tags+=("stable")
           fi
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
-             
+
       # Build image using Buildah action
       - name: Build Image
         id: build_image
@@ -62,7 +64,7 @@ jobs:
             FEDORA_MAJOR_VERSION=${{ matrix.major_version }}
           oci: true
 
-      # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
+      # Workaround bug for capital letters in your GitHub username.
       # https://github.com/macbre/push-to-ghcr/issues/12
       - name: Lowercase Registry
         id: registry_case
@@ -85,6 +87,23 @@ jobs:
           password: ${{ env.REGISTRY_PASSWORD }}
           extra-args: |
             --disable-content-trust
+
+      # Sign container
+      - uses: sigstore/cosign-installer@main
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sign container image
+        run: |
+          cosign sign --key ${{secrets.COSIGN_KEY}} ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
+        env:
+          TAGS: ${{ steps.push.outputs.digest }}
+          COSIGN_PRIVATE_KEY: ${{secrets.COSIGN_KEY}}
+          COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
+          COSIGN_EXPERIMENTAL: false
 
       - name: Echo outputs
         run: |
