@@ -90,15 +90,17 @@ jobs:
 
       # Sign container
       - uses: sigstore/cosign-installer@main
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Sign container image
         run: |
-          cosign sign --key ${{secrets.COSIGN_KEY}} ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
+          cosign sign --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
         env:
           TAGS: ${{ steps.push.outputs.digest }}
           COSIGN_PRIVATE_KEY: ${{secrets.COSIGN_KEY}}
