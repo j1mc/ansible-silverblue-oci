@@ -7,8 +7,7 @@ A base image with a (mostly) stock Fedora Silverblue. Taken from
 
 ## Usage
 
-Warning: This is experimental and fun (i.e., some of it is hackis for now). It's not
-tip-top quality stuff at the moment.
+Warning: This is not tip-top quality stuff at the moment. Use / experiment with it at your peril.
 
 If you're okay with that, and you want to have fun with it yourself, though, you try it this way:
 
