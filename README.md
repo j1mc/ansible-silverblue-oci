@@ -7,14 +7,16 @@ A base image with a (mostly) stock Fedora Silverblue. Taken from
 
 ## Usage
 
-Warning: This is an experimental feature and should not be used in production, try it in a VM for
-a while, you have been warned!
+Warning: This is experimental and fun (i.e., some of it is hackis for now). It's not
+tip-top quality stuff at the moment.
+
+If you're okay with that, and you want to have fun with it yourself, though, you try it this way:
 
     sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/marla-os:latest
     
-We build date tags as well, so if you want to rebase to a particular day's release:
+If you want to rebase to a particular day's release:
   
-    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/marla-os:20221217 
+    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/marla-os:20221227 
 
 The `latest` tag will automatically point to the latest build. 
 
