@@ -10,6 +10,7 @@ layered_package_install:
 
 base_package_remove:
   - firefox
+  - firefox-langpacks
 
 # The 'flatpak' role #
 ######################
