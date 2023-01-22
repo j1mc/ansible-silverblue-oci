@@ -7,11 +7,11 @@ COPY etc /etc
 
 COPY marla-os-firstboot /usr/bin
 
-COPY ansible-silverblue /var/opt
+ADD ansible-silverblue .
 
 RUN rpm-ostree -y install --apply-live ansible ansible-collection-community-general && \
-    ls -al /var/opt && \
-    cd /var/opt/ansible-silverblue && ansible-playbook -i hosts -l this_host playbook_base.yml && \
+    ls -al . && \
+    # ansible-playbook -i hosts -l this_host playbook_base.yml && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable flatpak-automatic.timer && \
