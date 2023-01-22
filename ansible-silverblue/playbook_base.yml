@@ -5,5 +5,5 @@
     - { role: layered_packages }
     - { role: flatpaks }
     - { role: fonts }
-    - { role: google-cloud-sdk }
+    - { role: google_cloud_sdk }
     - { role: gnome_settings }
