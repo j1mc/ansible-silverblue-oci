@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - { role: system_and_flatpak_updates }

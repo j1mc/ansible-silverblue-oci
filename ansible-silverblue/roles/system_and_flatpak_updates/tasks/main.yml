@@ -1,0 +1,29 @@
+---
+# tasks file for system_and_flatpak_updates
+
+- name: Configure rpm-ostree update settings
+  ansible.builtin.template:
+    src: templates/rpm-ostreed.conf.jinja2
+    dest: /etc/rpm-ostreed.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy the flatpak-automatic service and timer files to the host
+  ansible.builtin.copy:
+    src: files/{{ item }}
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - flatpak-automatic.service
+    - flatpak-automatic.timer
+
+- name: Enable the timer unit to update flatpak applications
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: yes
+  loop:
+    - flatpak-automatic.timer
+    - rpm-ostreed-automatic.timer

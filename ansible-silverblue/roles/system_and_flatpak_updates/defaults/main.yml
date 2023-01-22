@@ -1,0 +1,5 @@
+---
+# defaults file for system_and_flatpak_updates
+
+update_policy: none
+idle_timeout: "60"
