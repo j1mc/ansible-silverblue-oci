@@ -7,9 +7,13 @@ COPY etc /etc
 
 COPY marla-os-firstboot /usr/bin
 
-RUN rpm-ostree override remove firefox firefox-langpacks && \
-    rpm-ostree install distrobox gnome-tweaks && \
+COPY ansible-silverblue /var/opt
+
+RUN rpm-ostree -y install --apply-live ansible ansible-collection-community-general && \
+    ls -al /var/opt && \
+    cd /var/opt/ansible-silverblue && ansible-playbook -i hosts -l this_host playbook_base.yml && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable flatpak-automatic.timer && \
+    rpm -e ansible ansible-collection-community-general && rm -rf /var/opt/ansible-silverblue && \
     ostree container commit
