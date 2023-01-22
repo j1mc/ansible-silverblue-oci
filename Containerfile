@@ -11,9 +11,9 @@ COPY ansible-silverblue /var/opt/ansible-silverblue
 
 WORKDIR /var/opt/ansible-silverblue
 
-RUN tree /var/opt/ && \
-    # rpm-ostree -y install --apply-live ansible ansible-collection-community-general && \
-    # ansible-playbook -i hosts -l this_host playbook_base.yml && \
+RUN tree /var/opt/ansible-silverblue && \
+    rpm-ostree -y install --apply-live ansible ansible-collection-community-general && \
+    ansible-playbook -i hosts -l this_host playbook_base.yml && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable flatpak-automatic.timer && \
