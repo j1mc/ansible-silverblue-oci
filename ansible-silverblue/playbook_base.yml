@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  roles:
+    - { role: layered_packages }
+    - { role: flatpaks }
+    - { role: fonts }
+    - { role: google-cloud-sdk }
+    - { role: gnome_settings }

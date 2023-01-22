@@ -1,0 +1,6 @@
+---
+# handlers file for fonts
+
+- name: Update font cache
+  command: fc-cache -f {{ ansible_env.HOME }}/.local/share/fonts
+

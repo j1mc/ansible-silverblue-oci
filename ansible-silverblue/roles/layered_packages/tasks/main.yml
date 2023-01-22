@@ -1,0 +1,18 @@
+---
+# tasks file for layered_packages
+
+- name: Install desired applications as layered packages
+  community.general.rpm_ostree_pkg:
+    name: "{{ item }}"
+    state: present
+    # apply_live: true  # This feature is not yet available
+  loop: "{{ layered_package_install }}"
+
+- name: Remove applications from the base OS
+  ansible.builtin.command: rpm-ostree override remove {{ item }}
+  become: yes
+  become_method: sudo
+  loop: "{{ base_package_remove }}"
+
+- debug:
+    msg: "A reboot is required to complete installation / removal of these packages"
