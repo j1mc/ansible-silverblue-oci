@@ -9,8 +9,7 @@ layered_package_install:
   - yamllint
 
 base_package_remove:
-  - firefox
-  - firefox-langpacks
+  - firefox firefox-langpacks  # These pkgs need to be together here, otherwise ostree errors out.
 
 # The 'flatpak' role #
 ######################
