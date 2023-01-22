@@ -13,6 +13,3 @@
   become: yes
   become_method: sudo
   loop: "{{ base_package_remove }}"
-
-- debug:
-    msg: "A reboot is required to complete installation / removal of these packages"
