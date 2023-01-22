@@ -1,11 +1,15 @@
 # The 'layered_packages' role #
 ###############################
 layered_package_install:
+  - adobe-source-code-pro-fonts
+  - fira-code-fonts
+  - firewalld
   - gnome-tweaks
+  - google-roboto-mono-fonts
+  - jetbrains-mono-fonts
   - net-tools
   - python3-psutil
   - vim
-  - firewalld
   - yamllint
 
 base_package_remove:
@@ -30,16 +34,6 @@ flatpak_package_install:
   - { remote: 'flathub', package: 'org.mozilla.firefox' }
   - { remote: 'flathub', package: 'org.remmina.Remmina' }
 
-# The 'fonts' role #
-####################
-install_fonts:
-  - DejaVuSansMono
-  - FiraMono
-  - Hack
-  - RobotoMono
-  - SourceCodePro
-  - UbuntuMono
-
 # The 'settings' role #
 #######################
 dconf_settings:
@@ -58,4 +52,4 @@ dconf_settings:
 #########################
 
 update_policy: stage
-idle_timeout: '60'
+idle_timeout: '600'
