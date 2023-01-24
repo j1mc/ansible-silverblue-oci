@@ -1,0 +1,19 @@
+---
+# tasks file for build_cleanup
+
+- name: Create a directory at /etc/build_artifacts
+  file:
+    path: /etc/build_artifacts
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Backup files from /var to /etc/build_artifacts
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
