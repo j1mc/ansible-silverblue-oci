@@ -6,6 +6,7 @@ post_build_artifacts:
   - { src: /var/lib/flatpak/.changed, dest: /etc/build_artifacts/ }
   - { src: /var/roothome/.config, dest: /etc/build_artifacts/ }
   - { src: /var/roothome/.local, dest: /etc/build_artifacts/ }
+  - { src: /var/roothome/.viminfo, dest: /etc/build_artifacts/ }
 
 # The 'flatpak' role #
 ######################
