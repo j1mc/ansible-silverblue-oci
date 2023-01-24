@@ -1,22 +1,6 @@
 ---
 # tasks file for gnome_settings
 
-- name: Check for the presence of the 'python3-psutil' package
-  ansible.builtin.stat:
-    path:  /usr/share/doc/python3-psutil
-  register: psutil
-
-- debug:
-    msg: "NOTE! The python3-psutil package will now be installed, but this role won't work until the package is fully installed after a reboot."
-  when: psutil.stat.exists != true
-
-- name: If needed, install the 'python3-psutil' layered package
-  community.general.rpm_ostree_pkg:
-    name: python3-psutil
-    state: present
-    # apply_live: true
-  when: psutil.stat.exists != true
-
 - name: Apply desired gnome_settings via dconf. This step will be skipped if 'python3-psutil' is not fully present.
   community.general.dconf:
     key: "{{ item.key }}"
