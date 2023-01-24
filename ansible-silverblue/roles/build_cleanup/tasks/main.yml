@@ -17,3 +17,10 @@
     owner: root
     group: root
     mode: 0644
+  loop: "{{ post_build_artifacts }}"
+
+- name: Temporarily remove files that we just backed-up
+  file:
+    path: "{{ item.src }}"
+    state: absent
+  loop: "{{ post_build_artifacts }}"
