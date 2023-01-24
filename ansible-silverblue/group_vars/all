@@ -2,10 +2,10 @@
 ############################
 
 post_build_artifacts:
-  - { src: /var/lib/flatpak/repo/config, dest: /etc/build_artifacts/post_build }
-  - { src: /var/lib/flatpak/.changed, dest: /etc/build_artifacts/post_build }
-  - { src: /var/roothome/.config, dest: /etc/build_artifacts/post_build }
-  - { src: /var/roothome/.local, dest: /etc/build_artifacts/post_build }
+  - { src: /var/lib/flatpak/repo/config, dest: /etc/build_artifacts/ }
+  - { src: /var/lib/flatpak/.changed, dest: /etc/build_artifacts/ }
+  - { src: /var/roothome/.config, dest: /etc/build_artifacts/ }
+  - { src: /var/roothome/.local, dest: /etc/build_artifacts/ }
 
 # The 'flatpak' role #
 ######################
