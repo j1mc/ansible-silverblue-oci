@@ -2,9 +2,6 @@
 
 [![build-ansible-silverblue-oci](https://github.com/j1mc/ansible-silverblue-oci/actions/workflows/build.yml/badge.svg)](https://github.com/j1mc/ansible-silverblue-oci/actions/workflows/build.yml)
 
-A base image with a (mostly) stock Fedora Silverblue. Taken from
-[ublue-os/base](https://github.com/ublue-os/base), but renamed after one of my cats.
-
 ## Usage
 
 Warning: This is not tip-top quality stuff at the moment. Use / experiment with it at your peril.
@@ -19,25 +16,13 @@ If you want to rebase to a particular day's release:
 
 The `latest` tag will automatically point to the latest build. 
 
-## Features
+## What is this, exactly?
 
-- Start with a base Fedora Silverblue 37 image
-- Removes Firefox from the base image
-- Adds the following packages to the base image:
-  - distrobox and gnome-tweaks
-- Sets automatic staging of updates for the system
-- Sets flatpaks to update twice a day
-- Everything else (desktop, artwork, etc) remains stock so you can use this as a good starting image
-
-## Applications
-
-- All applications installed per user instead of system wide, similar to openSUSE MicroOS, they
-  are not on the base image. Thanks for the inspiration Team Green!
-- Mozilla Firefox, Mozilla Thunderbird, Extension Manager, Libreoffice, DejaDup, FontDownloader,
-  Flatseal, and the Celluloid Media Player
-- Core GNOME Applications installed from Flathub
-- GNOME Calculator, Calendar, Characters, Connections, Contacts, Evince, Firmware, Logs, Maps,
-  NautilusPreviewer, TextEditor, Weather, baobab, clocks, eog, and font-viewer.
+- We start with a base Fedora Silverblue 37 image
+- We customize the OS via an included set of Ansible roles
+- See the README inside of the 'ansible-silverblue' directory for the specific changes
+- ... You can do this, too! All of the Ansible changes are handled via the `group_vars/all` file
+  in the ansible portions of the project.
 
 ## Verification
 
@@ -46,3 +31,15 @@ can verify the signature by downloading the `cosign.pub` key from this repo and 
 following command:
 
     cosign verify --key cosign.pub ghcr.io/j1mc/ansible-silverblue-oci
+
+## Here Be Dragons
+
+As I said up top, I won't claim that this is expert systems engineering. It's a new approach to
+deploying a Linux desktop, though, and is worth some experimenting and fun. If you have any
+suggestions on how things could be handled in a better fashion, please submit an issue.
+
+## Credits
+
+Many thanks to the folks doing work on [ublue-os/base](https://github.com/ublue-os/base). That
+project was a big help in getting this started.
+
