@@ -28,9 +28,8 @@
 
 - name: Copy out the 'sync_files' Python script and related service
   copy:
-    src: "{{ item.src }}"
+    src: "files/{{ item.src }}"
     dest: "{{ item.dest }}"
-    remote_src: true
     owner: root
     group: root
     mode: 0644

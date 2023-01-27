@@ -9,8 +9,8 @@ post_build_artifacts:
   - { src: /var/roothome/.viminfo, dest: /etc/build_artifacts/roothome/.viminfo }
 
 post_build_systemd_service:
-  - { src: files/sync_files.py, dest: /usr/sbin/sync_files.py }
-  - { src: files/sync_files.service, dest: /etc/systemd/system/sync_files.service }
+  - { src: sync_files.py, dest: /usr/sbin/sync_files.py }
+  - { src: sync_files.service, dest: /etc/systemd/system/sync_files.service }
 
 # The 'flatpak' role #
 ######################
