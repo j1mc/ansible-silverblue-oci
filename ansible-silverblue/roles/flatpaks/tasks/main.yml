@@ -12,10 +12,6 @@
 - name: Update metadata to show newly-available software
   ansible.builtin.command: flatpak update --appstream
 
-# 1password doesn't have a separate flatpak repo
-- name: Install 1password flatpak via direct download
-  ansible.builtin.command: flatpak --user install https://downloads.1password.com/linux/flatpak/1Password.flatpakref
-
 - name: Install Flatpak packages
   community.general.flatpak:
     name: "{{ item.package }}"
