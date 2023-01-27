@@ -1,0 +1,13 @@
+[Unit]
+Description=Service to sync files on boot. Only run after an OS update.
+
+[Service]
+Type=oneshot
+ExecStart=/bin/env/python /usr/sbin/sync_files.py
+ExecStart=/bin/env/bash -c "systemctl disable sync_files.service"
+ExecStart=/bin/env/bash -c "rm /usr/sbin/sync_files.py"
+
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

@@ -2,20 +2,24 @@
 ############################
 
 post_build_artifacts:
-  - { src: /var/lib/flatpak/repo/config, dest: /etc/build_artifacts/ }
-  - { src: /var/lib/flatpak/.changed, dest: /etc/build_artifacts/ }
-  - { src: /var/roothome/.config, dest: /etc/build_artifacts/ }
-  - { src: /var/roothome/.local, dest: /etc/build_artifacts/ }
-  - { src: /var/roothome/.viminfo, dest: /etc/build_artifacts/ }
+  - { src: /var/lib/flatpak/repo/config, dest: /etc/build_artifacts/flatpak/repo/config }
+  - { src: /var/lib/flatpak/.changed, dest: /etc/build_artifacts/flatpak/ }
+  - { src: /var/roothome/.config, dest: /etc/build_artifacts/roothome/.config }
+  - { src: /var/roothome/.local, dest: /etc/build_artifacts/roothome/.local }
+  - { src: /var/roothome/.viminfo, dest: /etc/build_artifacts/roothome/.viminfo }
+
+post_build_systemd_service:
+  - { src: sync_files.py, dest: /usr/sbin/sync_files.py }
+  - { src: sync_files.service, dest: /etc/systemd/system/sync_files.service }
 
 # The 'flatpak' role #
 ######################
 flatpak_remote_install:
-  - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                 # Flathub
-#  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                          # Fedora
-#  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }    # Flathub Beta
-#  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }      # GNOME nightly    
-#  - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                 # KDE applications
+  - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                   # Flathub
+#  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                            # Fedora
+#  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }      # Flathub Beta
+#  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }        # GNOME nightly    
+#  - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                   # KDE applications
 
 # The 'layered_packages' role #
 ###############################
@@ -40,6 +44,7 @@ flatpak_package_install:
 # - { remote: 'flathub', package: 'com.discordapp.Discord' }
   - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
+  - { remote: 'flathub', package: 'com.onepassword.OnePassword' }
 # - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
 # - { remote: 'flathub', package: 'org.gnome.eog' }
 # - { remote: 'flathub', package: 'org.gnome.Firmware' }    

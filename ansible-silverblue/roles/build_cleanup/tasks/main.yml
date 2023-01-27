@@ -1,13 +1,14 @@
 ---
 # tasks file for build_cleanup
 
-- name: Create a directory at /etc/build_artifacts
+- name: Create needed directories under /etc/build_artifacts
   file:
-    path: /etc/build_artifacts
+    path: "{{ item.dest }}"
     state: directory
     owner: root
     group: root
     mode: 0755
+  loop: "{{ post_build_artifacts }}"
 
 - name: Backup files from /var to /etc/build_artifacts
   copy:
@@ -24,3 +25,18 @@
     path: "{{ item.src }}"
     state: absent
   loop: "{{ post_build_artifacts }}"
+
+- name: Copy out the 'sync_files' Python script and related service
+  copy:
+    src: "files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
+  loop: "{{ post_build_systemd_service }}"
+
+- name: Enable the 'sync_files' systemd service
+  systemd:
+    name: sync_files
+    enabled: yes
