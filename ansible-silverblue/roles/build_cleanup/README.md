@@ -2,20 +2,16 @@ build_cleanup
 =============
 
 This may be a bit hackish for now, but I'm seeing if I can temporarily move some files at the end
-of the build process so that they don't cause the build to fail. The files will be restored
-after the host boots.
+of the build process so that they don't cause the build to fail. These files are then restored on firstboot.
 
 Requirements
 ------------
 
 Modules used:
 
-  * [ansible.builtin.yum_repository](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_repository_module.html)
-  * [ansible.builtin.debug](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html)
-  * [community.general.rpm_ostree_pkg](https://docs.ansible.com/ansible/latest/collections/community/general/rpm_ostree_pkg_module.html)
-  * [community.general.dconf](https://docs.ansible.com/ansible/latest/collections/community/general/dconf_module.html)
-  * [ansible.builtin.command](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/command_module.html)
-
+  * [ansible.builtin.file](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html)
+  * [ansible.builtin.copy](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
+  * [ansible.builtin.systemd](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)
 
 Role Variables
 --------------

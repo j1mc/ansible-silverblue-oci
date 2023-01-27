@@ -5,7 +5,7 @@ FROM ghcr.io/cgwalters/fedora-silverblue:${FEDORA_MAJOR_VERSION}
 
 COPY etc /etc
 
-COPY marla-os-firstboot /usr/bin
+COPY ansible-silverblue-oci-firstboot /usr/bin
 
 COPY ansible-silverblue /var/opt/ansible-silverblue
 

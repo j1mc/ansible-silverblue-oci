@@ -1,7 +1,7 @@
 os_updates
 ==========
 
-Configure operating system updates for Fedora Silverblue hosts.
+Configure operating system and Flatpak package updates for Fedora Silverblue hosts.
 
 Requirements
 ------------
@@ -9,6 +9,9 @@ Requirements
 Modules used:
 
   * [ansible.builtin.template](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html)
+  * [ansible.builtin.copy](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
+  * [ansible.builtin.systemd](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)
+
 
 Role Variables
 --------------
