@@ -44,7 +44,6 @@ flatpak_package_install:
 # - { remote: 'flathub', package: 'com.discordapp.Discord' }
   - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
-  - { remote: 'flathub', package: 'com.onepassword.OnePassword' }
 # - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
 # - { remote: 'flathub', package: 'org.gnome.eog' }
 # - { remote: 'flathub', package: 'org.gnome.Firmware' }    
