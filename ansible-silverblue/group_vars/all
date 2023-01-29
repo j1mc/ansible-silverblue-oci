@@ -41,16 +41,16 @@ base_package_remove:
 
 # Commenting-out some packages to speed up testing. Will reinstate later.
 flatpak_package_install:
-# - { remote: 'flathub', package: 'com.discordapp.Discord' }
+  - { remote: 'flathub', package: 'com.discordapp.Discord' }
   - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
-# - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
-# - { remote: 'flathub', package: 'org.gnome.eog' }
-# - { remote: 'flathub', package: 'org.gnome.Firmware' }    
-# - { remote: 'flathub', package: 'org.gnome.Podcasts' }
-# - { remote: 'flathub', package: 'org.gnome.Totem' }
-# - { remote: 'flathub', package: 'org.mozilla.firefox' }
-# - { remote: 'flathub', package: 'org.mozilla.Thunderbird' }
+  - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
+  - { remote: 'flathub', package: 'org.gnome.eog' }
+  - { remote: 'flathub', package: 'org.gnome.Firmware' }    
+  - { remote: 'flathub', package: 'org.gnome.Podcasts' }
+  - { remote: 'flathub', package: 'org.gnome.Totem' }
+  - { remote: 'flathub', package: 'org.mozilla.firefox' }
+  - { remote: 'flathub', package: 'org.mozilla.Thunderbird' }
   - { remote: 'flathub', package: 'org.remmina.Remmina' }
 
 # The 'settings' role #
