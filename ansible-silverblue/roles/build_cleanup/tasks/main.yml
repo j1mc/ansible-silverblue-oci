@@ -40,5 +40,5 @@
     name: sync_files
     enabled: yes
 
-- name: Clean the yum repository of metadata to reduce the image size
-  command: yum clean all
+- name: Clean the ostree repository of metadata to reduce the image size
+  command: rpm-ostree cleanup
