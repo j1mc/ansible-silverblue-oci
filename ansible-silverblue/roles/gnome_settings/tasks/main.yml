@@ -1,12 +1,12 @@
 ---
 # tasks file for gnome_settings
 
-- name: Apply desired gnome_settings via dconf. This step will be skipped if 'python3-psutil' is not fully present.
+- name: Apply desired gnome_settings via dconf.
   community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
   loop: "{{ dconf_settings }}"
 
-- name: Update the dconf database. This step will be skipped if 'python3-psutil' is not fully present.
+- name: Update the dconf database.
   ansible.builtin.command: sudo dconf update
