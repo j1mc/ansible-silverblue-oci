@@ -16,11 +16,12 @@ brief summary of each role:
   - gnome_settings: Set various GNOME desktop settings. The role makes these changes via
     [dconf](https://wiki.gnome.org/Projects/dconf).
   - google_cloud_sdk: Installs the Google Cloud SDK.
+  - onepassword: Install the 1password yum repository and application.
   - system_and_flatpak_updates: Configure the auto-update policy for OS updates and Flatpak
-  packages on the host.
-  - build_cleanup: Perhaps a bit of a hack. We need work around the inability to install files /
-  make changes to anything on the `/var` filesystem. This is experimental, and I'm open to
-  suggestions on how to handle this better.
+    packages on the host.
+  - build_cleanup: We need work around the inability to install files /
+    make changes to anything on the `/var` filesystem. My approach here is experimental, and I'm
+    open to suggestions on how to better handle things here.
 
 Variables
 ---------
@@ -42,11 +43,6 @@ playbooks:
 
 If (for some odd reason) you want to run any of the roles individually, please review that role's
 `README` file for the needed command.
-
-License
--------
-
-Unless otherwise indicated in the individual role, this project is under the BSD License.
 
 Author
 ------
