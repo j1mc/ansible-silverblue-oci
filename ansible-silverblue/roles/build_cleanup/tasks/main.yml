@@ -41,4 +41,4 @@
     enabled: yes
 
 - name: Clean the ostree repository of metadata to reduce the image size
-  command: rpm-ostree cleanup
+  command: rpm-ostree cleanup -m
