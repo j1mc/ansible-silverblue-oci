@@ -39,3 +39,6 @@
   systemd:
     name: sync_files
     enabled: yes
+
+- name: Clean the yum repository of metadata to reduce the image size
+  command: yum clean all
