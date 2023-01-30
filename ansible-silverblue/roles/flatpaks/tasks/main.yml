@@ -16,6 +16,6 @@
   community.general.flatpak:
     name: "{{ item.package }}"
     state: present
-    method: user
+    method: system
     remote: "{{ item.remote }}"
   loop: "{{ flatpak_package_install }}"
