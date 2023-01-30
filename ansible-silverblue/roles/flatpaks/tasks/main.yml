@@ -5,7 +5,7 @@
   community.general.flatpak_remote:
     name: "{{ item.name }}"
     state: present
-    method: user
+    method: system 
     flatpakrepo_url: "{{ item.url }}"
   loop: "{{ flatpak_remote_install }}"
 
