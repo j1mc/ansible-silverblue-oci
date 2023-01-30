@@ -21,11 +21,11 @@ are handled within the `ansible-silverblue` directory, and you're encouraged to 
 
 To rebase an existing Silverblue installation to use these customizations, use these commands:
 
-    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:latest
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:latest
     
 If you want to rebase to a particular day's release:
   
-    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:20221227 
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:20221227 
 
 The `latest` tag will automatically point to the latest build. 
 
