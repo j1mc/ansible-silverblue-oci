@@ -1,4 +1,4 @@
-#! /usr/bin/env/python3
+#! /usr/bin/python
 
 import os
 import shutil
@@ -12,4 +12,4 @@ os.system("rsync -avrz /etc/build_artifacts/roothome/.viminfo /var/roothome/.vim
 
 shutil.rmtree('/etc/build_artifacts')
 
-os.system("echo 'The post rebase sync is complete.')
+os.system("echo 'The post rebase sync is complete.'")
