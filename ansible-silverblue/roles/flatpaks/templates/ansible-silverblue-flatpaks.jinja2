@@ -75,7 +75,6 @@ if [ "$?" != 0 ] ; then
         exit 1
 fi
 {% set progress_count = progress_count + 5 %}
-{% do progress.update({'progress_count':progress_count}) %}
 echo "{{ progress_count }}"
 {% endfor %}
 
