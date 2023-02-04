@@ -2,12 +2,8 @@
 ############################
 
 post_build_artifacts:
-  - { src: /var/lib/flatpak/repo/config, dest: /etc/build_artifacts/flatpak/repo/config }
-  - { src: /var/lib/flatpak/.changed, dest: /etc/build_artifacts/flatpak/ }
-  - { src: /var/opt/1Password, dest: /etc/build_artifacts/onepassword }
-  - { src: /var/roothome/.config, dest: /etc/build_artifacts/roothome/.config }
-  - { src: /var/roothome/.local, dest: /etc/build_artifacts/roothome/.local }
-  - { src: /var/roothome/.viminfo, dest: /etc/build_artifacts/roothome/.viminfo }
+  - /var/roothome/.config
+  - /var/roothome/.viminfo
 
 post_build_systemd_service:
   - { src: sync_files.py, dest: /usr/sbin/sync_files.py }

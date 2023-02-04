@@ -1,44 +1,11 @@
 ---
 # tasks file for build_cleanup
 
-- name: Create needed directories under /etc/build_artifacts
+- name: Remove files that get put in /var. Otherwise, the build will fail
   file:
-    path: "{{ item.dest }}"
-    state: directory
-    owner: root
-    group: root
-    mode: 0755
-  loop: "{{ post_build_artifacts }}"
-
-- name: Backup files from /var to /etc/build_artifacts
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    remote_src: true
-    owner: root
-    group: root
-    mode: 0644
-  loop: "{{ post_build_artifacts }}"
-
-- name: Temporarily remove files that we just backed-up
-  file:
-    path: "{{ item.src }}"
+    path: "{{ item }}"
     state: absent
   loop: "{{ post_build_artifacts }}"
-
-- name: Copy out the 'sync_files' Python script and related service
-  copy:
-    src: "files/{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    mode: 0644
-  loop: "{{ post_build_systemd_service }}"
-
-- name: Enable the 'sync_files' systemd service
-  systemd:
-    name: sync_files
-    enabled: yes
 
 - name: Clean the ostree repository of metadata to reduce the image size
   command: rpm-ostree cleanup -m
