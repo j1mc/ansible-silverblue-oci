@@ -1,6 +1,14 @@
 ---
 # tasks file for flatpaks
 
+- name: Ensure the /etc/skel.d/ directory exists
+  file:
+    path: /etc/skel.d/
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: Copy 'flatpak-setup.desktop' file to /etc/skel.d/.config/autostart/
   copy:
     - src: 'files/flatpak-setup.desktop'
