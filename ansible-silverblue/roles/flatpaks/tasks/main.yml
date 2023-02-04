@@ -11,8 +11,8 @@
 
 - name: Copy 'flatpak-setup.desktop' file to /etc/skel.d/.config/autostart/
   copy:
-    - src: 'files/flatpak-setup.desktop'
-    - dest: '/etc/skel.d/.config/autostart/flatpak-setup.desktop'
+    src: 'files/flatpak-setup.desktop'
+    dest: '/etc/skel.d/.config/autostart/flatpak-setup.desktop'
 
 - name: Create flatpak installation script at /usr/bin/ansible-silverblue-flatpak
   ansible.builtin.template:
