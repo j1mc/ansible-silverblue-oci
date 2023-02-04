@@ -5,7 +5,6 @@
   community.general.rpm_ostree_pkg:
     name: "{{ item }}"
     state: present
-    # apply_live: true  # This feature is not yet available
   loop: "{{ layered_package_install }}"
 
 - name: Remove applications from the base OS
