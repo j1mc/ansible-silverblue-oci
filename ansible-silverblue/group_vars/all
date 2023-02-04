@@ -17,10 +17,10 @@ post_build_systemd_service:
 ######################
 flatpak_remote_install:
   - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                   # Flathub
-#  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                            # Fedora
-#  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }      # Flathub Beta
-#  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }        # GNOME nightly    
-#  - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                   # KDE applications
+# - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                             # Fedora
+# - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }       # Flathub Beta
+# - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }         # GNOME nightly    
+# - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                    # KDE applications
 
 # The 'layered_packages' role #
 ###############################
@@ -42,17 +42,17 @@ base_package_remove:
 
 # Commenting-out some packages to speed up testing. Will reinstate later.
 flatpak_package_install:
-  - { remote: 'flathub', package: 'com.discordapp.Discord' }
-  - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
-  - { remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
-  - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
-  - { remote: 'flathub', package: 'org.gnome.eog' }
-  - { remote: 'flathub', package: 'org.gnome.Firmware' }    
-  - { remote: 'flathub', package: 'org.gnome.Podcasts' }
-  - { remote: 'flathub', package: 'org.gnome.Totem' }
-  - { remote: 'flathub', package: 'org.mozilla.firefox' }
-  - { remote: 'flathub', package: 'org.mozilla.Thunderbird' }
-  - { remote: 'flathub', package: 'org.remmina.Remmina' }
+  - { name: 'Discord', remote: 'flathub', package: 'com.discordapp.Discord' }
+  - { name: 'Flatseal', remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
+  - { name: 'Extension Manager', remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
+  - { name: 'Glimpse', remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
+  - { name: 'Eye of GNOME', remote: 'flathub', package: 'org.gnome.eog' }
+  - { name: 'Firmware', remote: 'flathub', package: 'org.gnome.Firmware' }    
+  - { name: 'Podcasts', remote: 'flathub', package: 'org.gnome.Podcasts' }
+  - { name: 'Totem', remote: 'flathub', package: 'org.gnome.Totem' }
+  - { name: 'Firefox', remote: 'flathub', package: 'org.mozilla.firefox' }
+  - { name: 'Thunderbird', remote: 'flathub', package: 'org.mozilla.Thunderbird' }
+  - { name: 'Remmina', remote: 'flathub', package: 'org.remmina.Remmina' }
 
 # The 'settings' role #
 #######################
