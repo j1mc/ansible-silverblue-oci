@@ -1,9 +1,9 @@
 ---
 # tasks file for flatpaks
 
-- name: Ensure the /etc/skel.d/ directory exists
+- name: Ensure the /etc/skel.d/.config/autostart/ directory exists
   file:
-    path: /etc/skel.d/
+    path: /etc/skel.d/.config/autostart/
     state: directory
     owner: root
     group: root
