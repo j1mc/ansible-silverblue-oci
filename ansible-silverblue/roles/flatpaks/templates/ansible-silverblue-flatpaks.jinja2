@@ -1,0 +1,95 @@
+#!/bin/sh
+
+if test -e "$HOME"/.config/ansible-silverblue-oci/firstboot-done; then
+    echo "Already ran"
+    exit 0
+fi
+
+(
+echo "# Waiting for Internet connection"
+until /usr/bin/ping -q -c 1 flathub.org; do sleep 1; done
+echo "00"
+
+echo "# Removing Filtered Flathub Repository"
+/usr/bin/flatpak remote-delete flathub --force ||:
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Removing Filtered Flathub Repo Failed"
+        exit 1
+fi
+echo "3"
+
+echo "# Enabling Flatpak Repository / Repositories"
+/usr/bin/flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Adding Flathub Repo Failed"
+        exit 1
+fi
+echo "5"
+
+echo "# Replacing Fedora Flatpaks with Flathub ones (this may take a while)"
+/usr/bin/flatpak install --user --noninteractive org.gnome.Platform//43
+/usr/bin/flatpak install --user --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Replacing Fedora Flatpaks Failed"
+        exit 1
+fi
+echo "10"
+
+echo "Removing all preinstalled system Flatpaks packages and Flatpak runtimes"
+/usr/bin/flatpak remove --system --noninteractive --all ||:
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Removing all preinstalled flatpaks failed"
+        exit 1
+fi
+
+echo "# Removing Fedora Flatpak Repository"
+/usr/bin/flatpak remote-delete fedora --force ||:
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Removing Fedora Flatpak Repo Failed"
+        exit 1
+fi
+
+echo "# Updating Flatpak metadata to show newly-available software"
+/usr/bin/flatpak update --user --appstream --noninteractive ||:
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Updating Flatpak package metadata failed."
+        exit 1
+fi
+echo "15"
+
+echo "# Installing all selected Flatpak packages. This next step may take a while."
+
+{% for item in flatpak_package_install %}
+{% set progress_count = 20 %}
+echo "# Installing {{ item.name }}"
+/usr/bin/flatpak install --user --noninteractive {{ item.remote }} {{ item.package }}
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Installing {{ item.name }} Failed"
+        exit 1
+fi
+{% set progress_count = progress_count + 5 %}
+{% do progress.update({'progress_count':progress_count}) %}
+echo "{{ progress_count }}"
+{% endfor %}
+
+echo "95"
+
+echo "# Reticulating Final Splines"
+mkdir -p "$HOME"/.config/ansible-silverblue-oci/
+touch "$HOME"/.config/ansible-silverblue-oci/flatpak-firstboot-done
+
+) | 
+     
+   zenity --progress --title="Ansible Silverblue OCI Firstboot" --percentage=0 --auto-close --no-cancel --width=300
+
+if [ "$?" != 0 ] ; then
+        zenity --error \
+          --text="Firstboot Configuration Error"
+fi

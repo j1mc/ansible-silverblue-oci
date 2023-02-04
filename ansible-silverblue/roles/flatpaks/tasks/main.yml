@@ -1,21 +1,15 @@
 ---
 # tasks file for flatpaks
 
-- name: Add Flatpak remote for Flathub
-  community.general.flatpak_remote:
-    name: "{{ item.name }}"
-    state: present
-    method: system 
-    flatpakrepo_url: "{{ item.url }}"
-  loop: "{{ flatpak_remote_install }}"
+- name: Copy 'flatpak-setup.desktop' file to /etc/skel.d/.config/autostart/
+  copy:
+    - src: 'files/flatpak-setup.desktop'
+    - dest: '/etc/skel.d/.config/autostart/flatpak-setup.desktop'
 
-- name: Update metadata to show newly-available software
-  ansible.builtin.command: flatpak update --appstream
-
-- name: Install Flatpak packages
-  community.general.flatpak:
-    name: "{{ item.package }}"
-    state: present
-    method: system
-    remote: "{{ item.remote }}"
-  loop: "{{ flatpak_package_install }}"
+- name: Create flatpak installation script at /usr/bin/ansible-silverblue-flatpak
+  ansible.builtin.template:
+    src: templates/ansible-silverblue-flatpaks.jinja2
+    dest: /usr/bin/ansible-silverblue-flatpak
+    owner: root
+    group: root
+    mode: 0644
