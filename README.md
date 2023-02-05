@@ -7,25 +7,33 @@ tooling + Ansible to create a customized, bootable version of Fedora Silverblue.
 are handled within the `ansible-silverblue` directory, and you're encouraged to read the
 [README](ansible-silverblue/README.md) there to see exactly what this project does.
 
-## What does this mean, exactly?
+For now this project uses the Ansible version packaged by Fedora. On Fedora 37, that is ansible
+7.1.
+
+## What does all this mean, exactly?
 
 - We start with a base Fedora Silverblue 37 image
 - We customize the OS via an included set of Ansible roles
 - We build and sign a container image based on these customizations
-- Enable you to rebase your current Silverblue installation to use these customizations
-- See the README inside of the 'ansible-silverblue' directory for the specific changes
-- ... You can do this, too! All of the Ansible changes are configured via the `group_vars/all` file
-  in the ansible portions of the project.
+- Enable you to then rebase your current Silverblue installation to use these customizations
+
+See the [README](ansible-silverblue/README.md) inside of the 'ansible-silverblue' directory for
+the specific changes
+
+What's important is that you can do this, too! All of the Ansible changes are configured via the
+`group_vars/all` file in the ansible portions of the project. Completely forking the project will
+require that you modify a few things, but I can assist if you'd like to give this a try. Feel
+free to leave a comment or inquiry as an 'Issue', and I'll be in touch with you.
 
 ## Usage
 
-To rebase an existing Silverblue installation to use these customizations, use these commands:
+To rebase an fresh or existing Silverblue installation to use these customizations, run this command:
 
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:latest
+    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:latest
     
 If you want to rebase to a particular day's release:
   
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:20221227 
+    sudo rpm-ostree rebase  --experimental ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:20221227 
 
 The `latest` tag will automatically point to the latest build. 
 

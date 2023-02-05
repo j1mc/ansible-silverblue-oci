@@ -15,13 +15,17 @@ brief summary of each role:
   - layered_packages: Install or remove packages into / from the base rpm-ostree image.
   - gnome_settings: Set various GNOME desktop settings. The role makes these changes via
     [dconf](https://wiki.gnome.org/Projects/dconf).
-  - google_cloud_sdk: Installs the Google Cloud SDK.
-  - onepassword: Install the 1password yum repository and application.
   - system_and_flatpak_updates: Configure the auto-update policy for OS updates and Flatpak
     packages on the host.
   - build_cleanup: We need work around the inability to install files /
     make changes to anything on the `/var` filesystem. My approach here is experimental, and I'm
     open to suggestions on how to better handle things here.
+
+The following roles are present in this repository, but are not being run as part of the
+customization process:
+
+  - google_cloud_sdk: Installs the Google Cloud SDK.
+  - onepassword: Install the 1password yum repository and application.
 
 Variables
 ---------
