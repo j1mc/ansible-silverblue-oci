@@ -11,6 +11,14 @@
 
 - name: Copy 'flatpak-setup.desktop' into the /etc/skel.d/.config/autostart directory
   ansible.builtin.copy:
+    src: files/ansible-silverblue-oci-firstboot.sh
+    dest: /etc/profile.d/ansible-silverblue-oci-firstboot.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Copy 'flatpak-setup.desktop' into the /etc/skel.d/.config/autostart directory
+  ansible.builtin.copy:
     src: files/flatpak-setup.desktop
     dest: /etc/skel.d/.config/autostart/flatpak-setup.desktop
     owner: root
