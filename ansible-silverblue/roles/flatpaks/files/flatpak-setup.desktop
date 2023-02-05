@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Ansible Silverblue OCI - Flatpak FirstBoot Setup
+Name=Ansible Silverblue OCI Flatpak FirstBoot Setup
 Comment=Installs a prescribed set of Flatpaks on first boot
 Exec=/usr/bin/ansible-silverblue-flatpak
 Icon=org.gnome.Terminal
