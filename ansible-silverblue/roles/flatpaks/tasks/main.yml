@@ -2,17 +2,20 @@
 # tasks file for flatpaks
 
 - name: Ensure the /etc/skel.d/.config/autostart/ directory exists
-  file:
-    path: /etc/skel.d/.config/autostart/
+  ansible.builtin.file:
+    path: /etc/skel.d/.config/autostart
     state: directory
     owner: root
     group: root
     mode: 0755
 
-- name: Copy 'flatpak-setup.desktop' file to /etc/skel.d/.config/autostart/
-  copy:
-    src: 'files/flatpak-setup.desktop'
-    dest: '/etc/skel.d/.config/autostart/flatpak-setup.desktop'
+- name: Copy 'flatpak-setup.desktop' into the /etc/skel.d/.config/autostart directory
+  ansible.builtin.copy:
+    src: files/flatpak-setup.desktop
+    dest: /etc/skel.d/.config/autostart/flatpak-setup.desktop
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Create flatpak installation script at /usr/bin/ansible-silverblue-flatpak
   ansible.builtin.template:
