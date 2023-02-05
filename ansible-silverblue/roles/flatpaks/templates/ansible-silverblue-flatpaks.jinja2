@@ -15,15 +15,18 @@ until /usr/bin/ping -q -c 1 flathub.org; do sleep 1; done
 echo "00"
 
 echo "# Removing Filtered Flathub Repository"
-/usr/bin/flatpak remote-delete flathub --force ||:
-if [ "$?" != 0 ] ; then
-        zenity --error \
-          --text="Removing Filtered Flathub Repo Failed"
-        exit 1
+/usr/bin/flatpak remotes | grep flathub | grep system
+if [ "$?" == 0 ] ; then
+        /usr/bin/flatpak remote-delete --system flathub --force ||:
+        if [ "$?" != 0 ] ; then
+                zenity --error \
+                  --text="Removing Filtered Flathub Repo Failed"
+                exit 1
+        fi
 fi
 echo "3"
 
-echo "# Enabling Flatpak Repository / Repositories"
+echo "# Enabling Flatpak Repository: User"
 /usr/bin/flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 if [ "$?" != 0 ] ; then
         zenity --error \
@@ -33,8 +36,8 @@ fi
 echo "5"
 
 echo "# Replacing Fedora Flatpaks with Flathub ones (this may take a while)"
-/usr/bin/flatpak install --user --noninteractive org.gnome.Platform//43
-/usr/bin/flatpak install --user --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
+/usr/bin/flatpak install --or-update --user --noninteractive org.gnome.Platform//43
+/usr/bin/flatpak install --or-update --user --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
 if [ "$?" != 0 ] ; then
         zenity --error \
           --text="Replacing Fedora Flatpaks Failed"
@@ -43,19 +46,25 @@ fi
 echo "10"
 
 echo "Removing all preinstalled system Flatpaks packages and Flatpak runtimes"
-/usr/bin/flatpak remove --system --noninteractive --all ||:
-if [ "$?" != 0 ] ; then
-        zenity --error \
-          --text="Removing all preinstalled flatpaks failed"
-        exit 1
+/usr/bin/flatpak list | grep system
+if [ "$?" == 0 ] ; then
+        /usr/bin/flatpak remove --system --noninteractive --all ||:
+        if [ "$?" != 0 ] ; then
+                zenity --error \
+                  --text="Removing all preinstalled flatpaks failed"
+                exit 1
+        fi
 fi
 
 echo "# Removing Fedora Flatpak Repository"
-/usr/bin/flatpak remote-delete fedora --force ||:
-if [ "$?" != 0 ] ; then
-        zenity --error \
-          --text="Removing Fedora Flatpak Repo Failed"
-        exit 1
+/usr/bin/flatpak remotes | grep fedora
+if [ "$?" == 0 ] ; then
+        /usr/bin/flatpak remote-delete fedora --force ||:
+        if [ "$?" != 0 ] ; then
+                zenity --error \
+                  --text="Removing Fedora Flatpak Repo Failed"
+                exit 1
+        fi
 fi
 
 echo "# Updating Flatpak metadata to show newly-available software"
@@ -91,7 +100,7 @@ touch "$HOME"/.config/ansible-silverblue-oci/flatpak-firstboot-done
 
 ) | 
      
-   zenity --progress --title="Ansible Silverblue OCI Firstboot" --percentage=0 --auto-close --no-cancel --width=300
+   zenity --progress --title="Ansible Silverblue OCI Firstboot" --percentage=0 --auto-close --no-cancel --width=400
 
 if [ "$?" != 0 ] ; then
         zenity --error \
