@@ -6,6 +6,10 @@ if test -e "$HOME"/.config/ansible-silverblue-oci/firstboot-done; then
 fi
 
 (
+echo "# Some of these actions will require administrator permissions."
+sleep 3
+echo "00"
+
 echo "# Waiting for Internet connection"
 until /usr/bin/ping -q -c 1 flathub.org; do sleep 1; done
 echo "00"
