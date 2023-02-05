@@ -65,7 +65,7 @@ echo "15"
 
 echo "# Installing all selected Flatpak packages. This next step may take a while."
 
-{% set progress_count = namespace(value=20) %}
+{% set progress_count = (20) %}
 {% for item in flatpak_package_install %}
 echo "# Installing {{ item.name }}"
 /usr/bin/flatpak install --user --noninteractive {{ item.remote }} {{ item.package }}
