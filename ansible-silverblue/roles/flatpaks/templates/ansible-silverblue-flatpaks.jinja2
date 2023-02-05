@@ -81,7 +81,7 @@ echo "# Installing all selected Flatpak packages. This next step may take a whil
 {% set progress_count = namespace(value=20) %}
 {% for item in flatpak_package_install %}
 echo "# Installing {{ item.name }}"
-/usr/bin/flatpak install --user --noninteractive {{ item.remote }} {{ item.package }}
+/usr/bin/flatpak install --or-update --user --noninteractive {{ item.remote }} {{ item.package }}
 if [ "$?" != 0 ] ; then
         zenity --error \
           --text="Installing {{ item.name }} Failed"
@@ -94,7 +94,7 @@ echo "{{ progress_count.value }}"
 echo "95"
 
 echo "# Finalizing configuration."
-sleep 5
+sleep 3
 mkdir -p "$HOME"/.config/ansible-silverblue-oci/
 touch "$HOME"/.config/ansible-silverblue-oci/flatpak-firstboot-done
 
