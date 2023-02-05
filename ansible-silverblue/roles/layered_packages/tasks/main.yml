@@ -1,7 +1,7 @@
 ---
 # tasks file for layered_packages
 
-- name: Install desired applications as layered packages
+- name: Install selected applications as layered packages
   community.general.rpm_ostree_pkg:
     name: "{{ item }}"
     state: present
