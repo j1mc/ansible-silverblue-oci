@@ -14,7 +14,7 @@ For now this project uses the Ansible version packaged by Fedora. On Fedora 37, 
 
 - We start with a base Fedora Silverblue 37 image
 - We customize the OS via an included set of Ansible roles
-- We use [.github/workflows/build.yml](Github Actions) to build and sign a container image based on
+- We use [Github Actions](.github/workflows/build.yml) to build and sign a container image based on
   these customizations
 - Enable you to then rebase your current Silverblue installation to use these customizations
 
