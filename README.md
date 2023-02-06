@@ -1,4 +1,7 @@
-# Ansible Silverblue OCI 
+# Ansible Silverblue OCI
+
+This repository is still a WIP. You can have a look at it or contribute to it, but it's not ready
+for others to use or fork and run with it.
 
 [![build-ansible-silverblue-oci](https://github.com/j1mc/ansible-silverblue-oci/actions/workflows/build.yml/badge.svg)](https://github.com/j1mc/ansible-silverblue-oci/actions/workflows/build.yml)
 
