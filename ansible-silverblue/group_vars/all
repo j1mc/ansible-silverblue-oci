@@ -39,10 +39,12 @@ base_package_remove:
 # Commenting-out some packages to speed up testing. Will reinstate later.
 flatpak_package_install:
   - { name: 'Cockpit Client', remote: 'flathub', package: 'org.cockpit_project.CockpitClient' }
+  - { name: 'VS Codium', remote: 'flathub', package: 'com.vscodium.codium' }
   - { name: 'Discord', remote: 'flathub', package: 'com.discordapp.Discord' }
   - { name: 'Flatseal', remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { name: 'Extension Manager', remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
   - { name: 'Glimpse', remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
+  - { name: 'GNOME Boxes', remote: 'flathub', package: 'org.gnome.Boxes' }
   - { name: 'Eye of GNOME', remote: 'flathub', package: 'org.gnome.eog' }
   - { name: 'Firmware', remote: 'flathub', package: 'org.gnome.Firmware' }
   - { name: 'Login Manager Settings', remote: 'flathub', package: 'io.github.realmazharhussain.GdmSettings' }
