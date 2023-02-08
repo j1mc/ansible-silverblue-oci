@@ -5,10 +5,6 @@ post_build_artifacts:
   - /var/roothome/.config
   - /var/roothome/.viminfo
 
-post_build_systemd_service:
-  - { src: sync_files.py, dest: /usr/sbin/sync_files.py }
-  - { src: sync_files.service, dest: /etc/systemd/system/sync_files.service }
-
 # The 'flatpak' role #
 ######################
 flatpak_remote_install:
@@ -44,15 +40,16 @@ flatpak_package_install:
   - { name: 'Flatseal', remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { name: 'Extension Manager', remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
   - { name: 'Glimpse', remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
+  - { name: 'Fluffy Chat', remote: 'flathub', package: 'im.fluffychat.Fluffychat' }
   - { name: 'GNOME Boxes', remote: 'flathub', package: 'org.gnome.Boxes' }
   - { name: 'Eye of GNOME', remote: 'flathub', package: 'org.gnome.eog' }
   - { name: 'Firmware', remote: 'flathub', package: 'org.gnome.Firmware' }
-  - { name: 'Login Manager Settings', remote: 'flathub', package: 'io.github.realmazharhussain.GdmSettings' }
   - { name: 'Podcasts', remote: 'flathub', package: 'org.gnome.Podcasts' }
+  - { name: 'Setzer', remote: 'flathub', package: 'org.cvfosammmm.Setzer' }
   - { name: 'Totem', remote: 'flathub', package: 'org.gnome.Totem' }
   - { name: 'Firefox', remote: 'flathub', package: 'org.mozilla.firefox' }
-  - { name: 'Thunderbird', remote: 'flathub', package: 'org.mozilla.Thunderbird' }
   - { name: 'Remmina', remote: 'flathub', package: 'org.remmina.Remmina' }
+  - { name: 'Zoom', remote: 'flathub', package: 'us.zoom.Zoom' }
 
 # The 'settings' role #
 #######################
