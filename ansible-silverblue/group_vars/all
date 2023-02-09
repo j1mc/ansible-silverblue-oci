@@ -26,7 +26,7 @@ layered_package_install:
   - net-tools
   - python3-ansible-lint
   - python3-psutil
-  - vim
+  - emacs
   - yamllint
 
 base_package_remove:
