@@ -1,0 +1,96 @@
+[org/gnome/desktop/interface]
+clock-format='12h'
+clock-show-weekday=true
+color-scheme='prefer-dark'
+font-antialiasing='rgba'
+font-hinting='slight'
+monospace-font-name='JetBrains Mono 10'
+show-battery-percentage=true
+toolkit-accessibility=false
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-software', 'org-mozilla-firefox', 'gnome-power-panel', 'org-gnome-terminal', 'us-zoom-zoom', 'org-gnome-nautilus']
+show-in-lock-screen=false
+
+[org/gnome/desktop/privacy]
+old-files-age=uint32 5
+recent-files-max-age=7
+remember-recent-files=true
+remove-old-temp-files=true
+remove-old-trash-files=true
+report-technical-problems=true
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+lock-delay=uint32 1800
+lock-enabled=true
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/gnome/adwaita-l.webp'
+primary-color='#3071AE'
+secondary-color='#000000'
+
+[org/gnome/desktop/session]
+idle-delay=uint32 720
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=true
+event-sounds=true
+theme-name='__custom'
+
+[org/gnome/desktop/wm/preferences]
+action-double-click-titlebar='toggle-maximize'
+button-layout='appmenu:minimize,maximize,close'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-temperature=uint32 2700
+
+[org/gnome/settings-daemon/plugins/power]
+ambient-enabled=true
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/shell]
+app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.Extensions.desktop': <{'position': <4>}>, 'org.fedoraproject.MediaWriter.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'org.gnome.Calendar.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'org.gnome.Firmware.desktop': <{'position': <9>}>, 'com.github.tchx84.Flatseal.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'gnome-system-monitor.desktop': <{'position': <12>}>, 'org.glimpse_editor.Glimpse.desktop': <{'position': <13>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.remmina.Remmina.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'org.gnome.Software.desktop': <{'position': <18>}>, 'org.mozilla.Thunderbird.desktop': <{'position': <19>}>, 'org.gnome.Tour.desktop': <{'position': <20>}>, 'org.cockpit_project.CockpitClient.desktop': <{'position': <21>}>, 'io.github.realmazharhussain.GdmSettings.desktop': <{'position': <22>}>}, {'us.zoom.Zoom.desktop': <{'position': <0>}>}]
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Terminal.desktop', 'com.vscodium.codium.desktop', 'org.gnome.Podcasts.desktop', 'org.mozilla.firefox.desktop', 'org.gnome.TextEditor.desktop', 'com.discordapp.Discord.desktop']
+
+[org/gnome/shell/weather]
+automatic-location=true
+locations=[<(uint32 2, <("Chicago-O'Hare International Airport", 'KORD', false, [(0.73268436797189906, -1.5342219749349741)], @a(dd) [])>)>]
+
+[org/gnome/shell/world-clocks]
+locations=[<(uint32 2, <('Seattle', 'KBFI', true, [(0.82983133145337307, -2.134775231953554)], [(0.83088509144255718, -2.135097419733472)])>)>, <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>, <(uint32 2, <('London', 'EGWU', true, [(0.89971722940307675, -0.007272211034407213)], [(0.89884456477707964, -0.0020362232784242244)])>)>, <(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91402892926943036, 0.085346600422522706)])>)>, <(uint32 2, <('Brno', 'LKTB', true, [(0.857829327355213, 0.291469985083053)], [(0.85870199198121022, 0.29030642643062599)])>)>, <(uint32 2, <('Singapore', 'WSAP', true, [(0.023852838928353343, 1.8136879868485383)], [(0.022568084612667797, 1.8126262332513803)])>)>]
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+font='JetBrains Mono 14'
+use-system-font=false
+
+[org/gnome/tweaks]
+show-extensions-notice=false
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=169
+sort-column='name'
+sort-directories-first=true
+sort-order='ascending'
+type-format='category'
+window-size=(895, 374)
+
+[org/gtk/settings/file-chooser]
+clock-format='12h'

@@ -1,12 +1,23 @@
 ---
 # tasks file for gnome_settings
 
-- name: Apply desired gnome_settings via dconf.
-  community.general.dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-    state: present
-  loop: "{{ dconf_settings }}"
+- name: Create directories needed for dconf (gnome settings) configuration
+  file:
+    path: "/etc/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - /dconf/db/local.d/
+    - /dconf/profile
 
-- name: Update the dconf database.
-  ansible.builtin.command: sudo dconf update
+- name: Install custom dconf configuration files
+  copy:
+    src: "{{ item.src }}"
+    path: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - { src: 'user', dest: '/etc/dconf/profile/user' }
+    - { src: 'gnome-settings', dest: 'etc/dconf/db/local.d/01-gnomesettings' }
