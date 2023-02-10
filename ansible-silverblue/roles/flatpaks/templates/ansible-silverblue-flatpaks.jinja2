@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if test -e "$HOME"/.config/ansible-silverblue-oci/flatpak-firstboot-done; then
     echo "Already ran"
@@ -15,8 +15,7 @@ until /usr/bin/ping -q -c 1 flathub.org; do sleep 1; done
 echo "00"
 
 echo "# Removing Filtered Flathub Repository"
-/usr/bin/flatpak remotes | grep flathub | grep system
-if [ "$?" == 0 ] ; then
+if [[ $(/usr/bin/flatpak remotes | grep flathub | grep system | wc -m) -gt 0 ]]; then
         /usr/bin/flatpak remote-delete --system flathub --force ||:
         if [ "$?" != 0 ] ; then
                 zenity --error \
@@ -35,18 +34,7 @@ if [ "$?" != 0 ] ; then
 fi
 echo "5"
 
-echo "# Replacing Fedora Flatpaks with Flathub ones (this may take a while)"
 if [[ $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | wc -m) -gt 0 ]]; then
-        /usr/bin/flatpak install --or-update --user --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
-                if [ "$?" != 0 ] ; then
-                        zenity --error \
-                          --text="Replacing Fedora Flatpaks Failed"
-                        exit 1
-                fi
-fi
-
-flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | wc -m
-if [ "$?" -gt 0 ] ; then
         /usr/bin/flatpak install --or-update --user --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
                 if [ "$?" != 0 ] ; then
                         zenity --error \
@@ -57,8 +45,7 @@ fi
 echo "10"
 
 echo "Removing all preinstalled system Flatpaks packages and Flatpak runtimes"
-/usr/bin/flatpak list | grep system
-if [ "$?" == 0 ] ; then
+if [[ $(/usr/bin/flatpak list | grep system | wc -m) -gt 0 ]]; then
         /usr/bin/flatpak remove --system --noninteractive --all ||:
         if [ "$?" != 0 ] ; then
                 zenity --error \
@@ -68,8 +55,7 @@ if [ "$?" == 0 ] ; then
 fi
 
 echo "# Removing Fedora Flatpak Repository"
-/usr/bin/flatpak remotes | grep fedora
-if [ "$?" == 0 ] ; then
+if [[ $(/usr/bin/flatpak remotes | grep fedora | wc -m) -gt 0 ]]; then
         /usr/bin/flatpak remote-delete fedora --force ||:
         if [ "$?" != 0 ] ; then
                 zenity --error \
@@ -98,7 +84,7 @@ if [ "$?" != 0 ] ; then
           --text="Installing {{ item.name }} Failed"
         exit 1
 fi
-{% set progress_count.value = progress_count.value + 5 %}
+{% set progress_count.value = progress_count.value + 2 %}
 echo "{{ progress_count.value }}"
 {% endfor %}
 
@@ -110,7 +96,7 @@ mkdir -p "$HOME"/.config/ansible-silverblue-oci/
 touch "$HOME"/.config/ansible-silverblue-oci/flatpak-firstboot-done
 
 ) | 
-     
+
    zenity --progress --title="Ansible Silverblue OCI Firstboot" --percentage=0 --auto-close --no-cancel --width=400
 
 if [ "$?" != 0 ] ; then

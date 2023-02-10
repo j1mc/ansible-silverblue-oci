@@ -1,0 +1,5 @@
+---
+# handlers file for gnome_settings
+
+- name: update dconf
+  ansible.builtin.command: dconf update
