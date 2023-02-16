@@ -1,7 +1,6 @@
 ARG FEDORA_MAJOR_VERSION=37
 
-FROM ghcr.io/cgwalters/fedora-silverblue:${FEDORA_MAJOR_VERSION}
-# See https://pagure.io/releng/issue/11047 for final location
+FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 
 COPY ansible-silverblue /var/opt/ansible-silverblue
 
