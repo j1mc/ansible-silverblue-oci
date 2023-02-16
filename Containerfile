@@ -1,4 +1,4 @@
-ARG FEDORA_MAJOR_VERSION=37
+ARG FEDORA_MAJOR_VERSION=38
 
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 
