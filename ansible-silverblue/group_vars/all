@@ -38,7 +38,7 @@ flatpak_package_install:
   - { name: 'Discord', remote: 'flathub', package: 'com.discordapp.Discord' }
   - { name: 'Flatseal', remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { name: 'Extension Manager', remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
-  - { name: 'Glimpse', remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
+  - { name: 'Gimp', remote: 'flathub', package: 'org.gimp.GIMP' }
   - { name: 'Fluffy Chat', remote: 'flathub', package: 'im.fluffychat.Fluffychat' }
   - { name: 'GNOME Boxes', remote: 'flathub', package: 'org.gnome.Boxes' }
   - { name: 'Eye of GNOME', remote: 'flathub', package: 'org.gnome.eog' }
