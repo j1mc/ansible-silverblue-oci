@@ -23,6 +23,7 @@ layered_package_install:
   - google-roboto-mono-fonts
   - jetbrains-mono-fonts
   - net-tools
+  - osbuild-composer
   - python3-ansible-lint
   - python3-psutil
   - emacs
