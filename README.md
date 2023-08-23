@@ -7,12 +7,12 @@ tooling + Ansible to create a customized, bootable version of Fedora Silverblue.
 are handled within the `ansible-silverblue` directory, and you're encouraged to read the
 [README](ansible-silverblue/README.md) there to see exactly what this project does.
 
-For now this project uses the Ansible version packaged by Fedora. On Fedora 37, that is ansible
-7.1.
+For now this project uses the Ansible version packaged by Fedora. On Fedora 38, that is currently
+ansible 7.7.
 
 ## What does all this mean, exactly?
 
-- We start with a base Fedora Silverblue 37 image
+- We start with a base Fedora Silverblue 38 image
 - We customize the OS via an included set of Ansible roles
 - We use [Github Actions](.github/workflows/build.yml) to build and sign a container image based on
   these customizations
