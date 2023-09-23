@@ -26,7 +26,6 @@ layered_package_install:
   - nmap
   - python3-ansible-lint
   - python3-psutil
-  - emacs
   - yamllint
   - zenity
 
