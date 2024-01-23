@@ -8,9 +8,9 @@ post_build_artifacts:
 ######################
 flatpak_remote_install:
   - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                   # Flathub
+  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }         # GNOME nightly    
 # - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                             # Fedora
 # - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }       # Flathub Beta
-# - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }         # GNOME nightly    
 # - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                    # KDE applications
 
 # The 'layered_packages' role #
@@ -30,23 +30,23 @@ layered_package_install:
   - zenity
 
 base_package_remove:
-  - firefox firefox-langpacks  # These pkgs need to be together here, otherwise ostree errors out.
+  - firefox firefox-langpacks  # These pkgs need to be on the same line, otherwise ostree errors out.
 
 flatpak_package_install:
   - { name: 'Cockpit Client', remote: 'flathub', package: 'org.cockpit_project.CockpitClient' }
-  - { name: 'VS Code', remote: 'flathub', package: 'com.visualstudio.code' }
-  - { name: 'Discord', remote: 'flathub', package: 'com.discordapp.Discord' }
-  - { name: 'Flatseal', remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
   - { name: 'Extension Manager', remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
-  - { name: 'Gimp', remote: 'flathub', package: 'org.gimp.GIMP' }
-  - { name: 'Fluffy Chat', remote: 'flathub', package: 'im.fluffychat.Fluffychat' }
-  - { name: 'GNOME Boxes', remote: 'flathub', package: 'org.gnome.Boxes' }
   - { name: 'Eye of GNOME', remote: 'flathub', package: 'org.gnome.eog' }
-  - { name: 'Firmware', remote: 'flathub', package: 'org.gnome.Firmware' }
-  - { name: 'Podcasts', remote: 'flathub', package: 'org.gnome.Podcasts' }
-  - { name: 'Totem', remote: 'flathub', package: 'org.gnome.Totem' }
   - { name: 'Firefox', remote: 'flathub', package: 'org.mozilla.firefox' }
+  - { name: 'Firmware', remote: 'flathub', package: 'org.gnome.Firmware' }
+  - { name: 'Flatseal', remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
+  - { name: 'GNOME Boxes', remote: 'flathub', package: 'org.gnome.Boxes' }
+  - { name: 'Paleta', remote: 'flathub', package: 'io.github.nate_xyz.Paleta' }
+  - { name: 'Planify', remote: 'flathub', package: 'io.github.alainm23.planify' }
+  - { name: 'Podcasts', remote: 'flathub', package: 'org.gnome.Podcasts' }
+  - { name: 'Pods', remote: 'flathub', package: 'com.github.marhkb.Pods' }
   - { name: 'Remmina', remote: 'flathub', package: 'org.remmina.Remmina' }
+  - { name: 'Totem', remote: 'flathub', package: 'org.gnome.Totem' }
+  - { name: 'VS Code', remote: 'flathub', package: 'com.visualstudio.code' }
   - { name: 'Zoom', remote: 'flathub', package: 'us.zoom.Zoom' }
 
 # The 'settings' role #
