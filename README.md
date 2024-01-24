@@ -31,9 +31,9 @@ free to leave a comment or inquiry as an 'Issue', and I'll be in touch with you.
 To rebase an fresh or existing Silverblue installation to use these customizations, run this command:
 
     sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:latest
-    
+
 If you want to rebase to a particular day's release:
-  
+
     sudo rpm-ostree rebase  --experimental ostree-unverified-registry:ghcr.io/j1mc/ansible-silverblue-oci:20221227 
 
 The `latest` tag will automatically point to the latest build. 
@@ -48,5 +48,7 @@ following command:
 
 ## Credits
 
-Many thanks to the folks doing work on [ublue-os/base](https://github.com/ublue-os/base). That
+This project got its start around the same time that the [Universal Blue](https://github.com/ublue-os)
+team were starting their efforts. We've taken some different approaches, and they're doing some great
+work. Check them out!
 project was a big help in getting this started.
