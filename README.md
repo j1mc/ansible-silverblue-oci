@@ -51,4 +51,3 @@ following command:
 This project got its start around the same time that the [Universal Blue](https://github.com/ublue-os)
 team were starting their efforts. We've taken some different approaches, and they're doing some great
 work. Check them out!
-project was a big help in getting this started.
