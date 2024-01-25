@@ -33,6 +33,7 @@ base_package_remove:
   - firefox firefox-langpacks  # These pkgs need to be on the same line, otherwise ostree errors out.
 
 flatpak_package_install:
+  - { name: 'Anki', remote: 'flathub', package: 'net.ankiweb.Anki' }
   - { name: 'Cockpit Client', remote: 'flathub', package: 'org.cockpit_project.CockpitClient' }
   - { name: 'Extension Manager', remote: 'flathub', package: 'com.mattjakeman.ExtensionManager' }
   - { name: 'Eye of GNOME', remote: 'flathub', package: 'org.gnome.eog' }
