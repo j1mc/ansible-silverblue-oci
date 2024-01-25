@@ -82,7 +82,7 @@ echo "# Installing {{ item.name }}"
 if [ "$?" != 0 ] ; then
         zenity --error \
           --text="Installing {{ item.name }} Failed"
-        exit 1
+        return 0
 fi
 {% set progress_count.value = progress_count.value + 2 %}
 echo "{{ progress_count.value }}"
