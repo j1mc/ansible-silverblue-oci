@@ -20,5 +20,5 @@
     group: root
     mode: 0644
   loop:
-    - {name: 'j1mc-cosign.pub', path: '/usr/etc/pki/containers/j1mc-cosign.pub'}
-    - {name: 'j1mc.yaml', path: '/usr/etc/containers/registries.d/j1mc.yaml'}
+    - { name: 'j1mc-cosign.pub', path: '/usr/etc/pki/containers/j1mc-cosign.pub' }
+    - { name: 'j1mc.yaml', path: '/usr/etc/containers/registries.d/j1mc.yaml' }

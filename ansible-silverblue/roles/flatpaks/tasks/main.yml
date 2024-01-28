@@ -25,10 +25,10 @@
     group: root
     mode: "{{ item.mode }}"
   loop:
-    - {name: 'ansible-silverblue-oci-firstboot.sh', path: '/etc/profile.d/ansible-silverblue-oci-firstboot.sh', mode: '0755'}
-    - [name: 'flatpak-setup.desktop', path: '/etc/skel.d/.config/autostart/flatpak-setup.desktop', mode: '0755 ']
-    - [name: 'flatpak-update.service', path: '/etc/systemd/system/flatpak-update.service', mode: '0644 ']
-    - [name: 'flatpak-update.timer', path: '/etc/systemd/system/flatpak-update.timer', mode: '0644 ']
+    - { name: 'ansible-silverblue-oci-firstboot.sh', path: '/etc/profile.d/ansible-silverblue-oci-firstboot.sh', mode: '0755' }
+    - { name: 'flatpak-setup.desktop', path: '/etc/skel.d/.config/autostart/flatpak-setup.desktop', mode: '0755' }
+    - { name: 'flatpak-update.service', path: '/etc/systemd/system/flatpak-update.service', mode: '0644' }
+    - { name: 'flatpak-update.timer', path: '/etc/systemd/system/flatpak-update.timer', mode: '0644' }
 
 - name: Enable the flatpak-update service
   ansible.builtin.systemd_service:
