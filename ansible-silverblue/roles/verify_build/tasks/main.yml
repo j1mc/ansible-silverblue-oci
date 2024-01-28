@@ -12,7 +12,7 @@
     - /usr/etc/pki/containers/
     - /usr/etc/containers/registries.d/
 
-- name: Copy public key and key-verification yaml file to appropriate directories
+- name: Copy needed verification files to appropriate directories
   ansible.builtin.copy:
     src: files/{{ item.name }}
     dest: "{{ item.path }}"
@@ -22,3 +22,4 @@
   loop:
     - { name: 'j1mc-cosign.pub', path: '/usr/etc/pki/containers/j1mc-cosign.pub' }
     - { name: 'j1mc.yaml', path: '/usr/etc/containers/registries.d/j1mc.yaml' }
+    - { name: 'policy.json', path: '/usr/etc/containers/policy.json' }
