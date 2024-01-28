@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Jim Campbell
+  description: Installs files and keys needed to validate the signed image
+  company: None
+
+  license: BSD
+
+  min_ansible_version: 5.1 
+
+  galaxy_tags: []
+
+dependencies: []
