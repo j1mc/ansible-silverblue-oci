@@ -29,9 +29,4 @@
     - { name: 'flatpak-setup.desktop', path: '/etc/skel.d/.config/autostart/flatpak-setup.desktop', mode: '0755' }
     - { name: 'flatpak-update.service', path: '/etc/systemd/system/flatpak-update.service', mode: '0644' }
     - { name: 'flatpak-update.timer', path: '/etc/systemd/system/flatpak-update.timer', mode: '0644' }
-
-- name: Enable the flatpak-update service
-  ansible.builtin.systemd_service:
-    name: flatpak-update.timer
-    enabled: true
-    daemon_reload: true
+    - { name: '10-flatpak-update.preset', path: '/usr/lib/systemd/system-preset/10-flatpak-update.preset', mode: '0644' }
