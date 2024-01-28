@@ -3,7 +3,7 @@
 
 - name: Ensure necessary directories are present
   ansible.builtin.file:
-    path: {{ item }}
+    path: "{{ item }}"
     state: directory
     owner: root
     group: root
@@ -15,7 +15,7 @@
 - name: Copy public key and key-verification yaml file to appropriate directories
   ansible.builtin.copy:
     src: files/{{ item.name }}
-    dest: {{ item.path }}
+    dest: "{{ item.path }}"
     owner: root
     group: root
     mode: 0644

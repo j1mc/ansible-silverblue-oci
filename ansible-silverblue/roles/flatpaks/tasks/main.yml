@@ -20,7 +20,7 @@
 - name: Copy flatpak script and update service+timer files onto the host
   ansible.builtin.copy:
     src: files/{{ item.name }}
-    dest: {{ item.path }}
+    dest: "{{ item.path }}"
     owner: root
     group: root
     mode: {{ item.mode }}
