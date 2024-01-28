@@ -23,7 +23,7 @@
     dest: "{{ item.path }}"
     owner: root
     group: root
-    mode: {{ item.mode }}
+    mode: "{{ item.mode }}"
   loop:
     - {name: 'ansible-silverblue-oci-firstboot.sh', path: '/etc/profile.d/ansible-silverblue-oci-firstboot.sh', mode: '0755'}
     - [name: 'flatpak-setup.desktop', path: '/etc/skel.d/.config/autostart/flatpak-setup.desktop', mode: '0755 ']
