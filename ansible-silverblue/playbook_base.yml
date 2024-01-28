@@ -6,7 +6,7 @@
     - { role: layered_packages }
     - { role: flatpaks }
 #   - { role: google_cloud_sdk }
-#   - { role: onepassword }
     - { role: gnome_settings }
     - { role: system_and_flatpak_updates }
+    - { role: verify_build }
     - { role: build_cleanup }
