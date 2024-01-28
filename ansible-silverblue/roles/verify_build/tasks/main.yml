@@ -1,0 +1,24 @@
+---
+# tasks file for verify_build
+
+- name: Ensure necessary directories are present
+  ansible.builtin.file:
+    path: {{ item }}
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  loop:
+    - /usr/etc/pki/containers/
+    - /usr/etc/containers/registries.d/
+
+- name: Copy public key and key-verification yaml file to appropriate directories
+  ansible.builtin.copy:
+    src: files/{{ item.name }}
+    dest: {{ item.path }}
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - {name: 'j1mc-cosign.pub', path: '/usr/etc/pki/containers/j1mc-cosign.pub'}
+    - {name: 'j1mc.yaml', path: '/usr/etc/containers/registries.d/j1mc.yaml'}
