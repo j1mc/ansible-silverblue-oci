@@ -17,6 +17,8 @@ flatpak_remote_install:
 ###############################
 layered_package_install:
   - adobe-source-code-pro-fonts
+  - autofs
+  - chrony
   - fira-code-fonts
   - firewalld
   - gnome-tweaks
