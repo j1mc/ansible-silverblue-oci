@@ -48,7 +48,7 @@ flatpak_package_install:
   - { name: 'Planify', remote: 'flathub', package: 'io.github.alainm23.planify' }
   - { name: 'Podcasts', remote: 'flathub', package: 'org.gnome.Podcasts' }
   - { name: 'Pods', remote: 'flathub', package: 'com.github.marhkb.Pods' }
-  - { name: 'Ptyxis', remote: 'gnome-nightly', package: 'org.gnome.Ptyxis.Devel' }
+  - { name: 'Ptyxis', remote: 'flathub', package: 'app.devsuite.Ptyxis' }
   - { name: 'Remmina', remote: 'flathub', package: 'org.remmina.Remmina' }
   - { name: 'Totem', remote: 'flathub', package: 'org.gnome.Totem' }
   - { name: 'VS Code', remote: 'flathub', package: 'com.visualstudio.code' }
