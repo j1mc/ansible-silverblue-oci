@@ -12,7 +12,7 @@ ansible 9.4.0.
 
 ## What does all this mean, exactly?
 
-- We start with a base Fedora Silverblue 40 image
+- We start with a base Fedora Silverblue image (the version is set in the Containerfile)
 - We customize the OS via an included set of Ansible roles
 - We use [Github Actions](.github/workflows/build.yml) to build and sign a container image based on
   these customizations
