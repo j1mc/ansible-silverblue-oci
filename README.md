@@ -12,14 +12,15 @@ Ansible version [here](https://packages.fedoraproject.org/pkgs/ansible/ansible/)
 
 ## What does all this mean, exactly?
 
-- We start with a base Fedora Silverblue image (the version is set in the Containerfile)
-- We customize the OS via an included set of Ansible roles
+- We start with a base Fedora Silverblue image (the specific Fedora version is set in the Containerfile
+  and in the .github/workflows/build.yml file).
+- We customize the OS via an included set of Ansible roles.
 - We use [Github Actions](.github/workflows/build.yml) to build and sign a container image based on
   these customizations
-- Enable you to then rebase your current Silverblue installation to use these customizations
+- Enable you to then rebase your current Silverblue installation to use these customizations.
 
 See the [README](ansible-silverblue/README.md) inside of the 'ansible-silverblue' directory for
-the specific changes
+the specific changes.
 
 What's important is that you can do this, too! All of the Ansible changes are configured via the
 `group_vars/all` file in the ansible portions of the project. Completely forking the project will
