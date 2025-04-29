@@ -7,8 +7,8 @@ tooling + Ansible to create a customized, bootable version of Fedora Silverblue.
 are handled within the `ansible-silverblue` directory, and you're encouraged to read the
 [README](ansible-silverblue/README.md) there to see exactly what this project does.
 
-For now this project uses the Ansible version packaged by Fedora. On Fedora 40, that is currently
-ansible 9.4.0.
+For now this project uses the Ansible version packaged by Fedora. You can view the current supported
+Ansible version [here](https://packages.fedoraproject.org/pkgs/ansible/ansible/).
 
 ## What does all this mean, exactly?
 
