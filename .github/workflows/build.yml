@@ -21,9 +21,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        major_version: [42]
+        major_version: [43]
         include:
-          - major_version: 42
+          - major_version: 43
             is_latest: true
             is_stable: true
     steps:
