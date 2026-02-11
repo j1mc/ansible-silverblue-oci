@@ -17,7 +17,9 @@ env:
 jobs:
   push-ghcr:
     name: Build and push image
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    env:
+      BUILDAH_FORMAT: oci
     strategy:
       fail-fast: false
       matrix:
